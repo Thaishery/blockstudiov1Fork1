@@ -45,7 +45,7 @@ class ProjetsController extends AbstractController
              }
 
         return $this->render('projets/index.html.twig', [
-            'controller_name' => 'ArtistesController',
+            'controller_name' => 'ProjetsController',
             'projet' => $projetList,
             'form' => $search_form -> createView(),
         ]);

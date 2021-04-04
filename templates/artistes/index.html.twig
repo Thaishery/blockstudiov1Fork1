@@ -11,7 +11,7 @@
      {% endblock %}
 
      {% block body %}
-    {{ form_start(form)}}
+    {# {{ form_start(form)}}
     <div class="row">
         {{form_widget
             (form.val,
@@ -30,13 +30,13 @@
             )
         }}
     </div>
-    {{ form_end(form)}}
+    {{ form_end(form)}} #}
              {# *** ALBUM CARD *** #}
  
                  <div class="row mainFrame col-10">
                  <div class="row">
                  
-                    {% for projets in projet %}
+                    {% for user in users %}
                     
                     <div class="flip-card card col-12 col-md-3 " style="height:500px; min-width:25%" >
 
@@ -44,11 +44,11 @@
 
                             <div class="flip-card-front" >
 
-                                 <h1 class="col-12">{{projets.title}}</h1>
+                                 <h1 class="col-12">{{user.login}}</h1>
 
-                                 <img class="col-12" src="/uploads/cover/{{projets.cover}}" alt="Cover"  >
+                                 <img class="col-12" src="/uploads/avatar/{{user.avatar}}" alt="avatar"  >
 
-                                 <text>
+                                 {# <text>
                                      Artiste: {{projets.createur.login}}
                                  </text>
                                  
@@ -62,15 +62,15 @@
                                 
                                  <text>
                                      Description: {{projets.description|length > 50 ? projets.description|slice(0,50)~'...' : projets.description}}
-                                 </text>
+                                 </text> #}
                                                           
                              </div>
 
                              <div class="flip-card-back col-12 col-md-3 ">
 
-                                 <h2 class="lead"> {{projets.title}} </h2>
+                                 <h2 class="lead"> {{user.login}} </h2>
 
-                                 <h2> {{projets.createur.login}} </h2>
+                                 {# <h2> {{projets.createur.login}} </h2>
      
                                  <p> {{projets.description}} </p>
                                 
@@ -88,7 +88,7 @@
 
                                      <br/>  
 
-                                     <p> Espace Réserver pour le player </p>
+                                     <p> Espace Réserver pour le player </p> #}
 
                              </div>
                             
@@ -159,7 +159,7 @@
                  <nav aria-label="...">
 
                      <div class="pagination justify-content-center">
-                         {{ knp_pagination_render(projet, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
+                         {{ knp_pagination_render(users, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
                          {# {{ knp_pagination_render(projet) }} #}
                      </div>
 
