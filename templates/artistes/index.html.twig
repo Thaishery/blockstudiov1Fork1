@@ -11,12 +11,33 @@
      {% endblock %}
 
      {% block body %}
-
+    {{ form_start(form)}}
+    <div class="row">
+        {{form_widget
+            (form.val,
+            {
+            'attr': {'placeholder':'rechercher un projet',
+            'class':'col-9',
+            }}
+            ) 
+            }}
+        {{form_widget
+            (form.Rechercher,
+            {
+            'attr':{
+            'class':'col-2 btn',
+            }}
+            )
+        }}
+    </div>
+    {{ form_end(form)}}
              {# *** ALBUM CARD *** #}
  
                  <div class="row mainFrame col-10">
                  <div class="row">
+                 
                     {% for projets in projet %}
+                    
                     <div class="flip-card card col-12 col-md-3 " style="height:500px; min-width:25%" >
 
                         <div class="flip-card-inner">
@@ -126,8 +147,10 @@
                                      {# </div> #}
 
                          {# </div> #}
-
+                    
                      {% endfor %}
+                    
+                    
                     </div>
                  </div>
 
